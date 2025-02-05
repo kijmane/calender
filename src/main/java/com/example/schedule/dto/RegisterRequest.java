@@ -11,7 +11,6 @@ public class RegisterRequest {
     private String name;
     private String phone;
 
-    // 추가된 getter 메서드
     public String getEmail() {
         return this.email;
     }
