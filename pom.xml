@@ -78,6 +78,24 @@
 			<version>5.0.0</version>
 		</dependency>
 
+		<!-- Spring Security 6.x 의존성 추가 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>6.3.6</version> <!-- Spring Security 6.x 버전 사용 -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>6.3.6</version> <!-- Spring Security 6.x 버전 사용 -->
+		</dependency>
+
+		<!-- Spring Data Redis 의존성 추가 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

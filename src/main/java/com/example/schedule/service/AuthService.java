@@ -7,20 +7,27 @@ import com.example.schedule.dto.AuthRequest;
 import com.example.schedule.dto.AuthResponse;
 import com.example.schedule.dto.RegisterRequest;
 import com.example.schedule.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
+    @Autowired
+    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.jwtUtil = jwtUtil;
+    }
+
+    // 회원가입 메서드
     public void register(RegisterRequest request) {
         User user = User.builder()
                 .email(request.getEmail())
@@ -32,6 +39,7 @@ public class AuthService {
         userRepository.save(user);
     }
 
+    // 로그인 메서드
     public AuthResponse login(AuthRequest request) {
         Optional<User> userOptional = userRepository.findByEmail(request.getEmail());
         if (userOptional.isEmpty()) {
@@ -43,9 +51,7 @@ public class AuthService {
             throw new RuntimeException("Invalid email or password");
         }
 
-        // JWT 토큰 생성 후 반환
         String token = jwtUtil.generateToken(user.getEmail());
-
         return new AuthResponse(token);
     }
 }
