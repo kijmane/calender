@@ -7,27 +7,27 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity // JPA 엔티티로 지정
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // 고유 ID , 자동생성
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private String email; // 이메일 , 고유 값 null (X)
 
     @Column(nullable = false)
-    private String password;
+    private String password; // 비밀번호 , null (X)
 
-    private String name;
+    private String name; // 사용자 이름
 
     @Enumerated(EnumType.STRING)
-    private Role role;
-
+    private Role role; // 사용자 역할 , USER OR ADMIN
+    // 빌더 패턴 사용 위한 static 메서드
     public static UserBuilder builder() {
         return new UserBuilder();
     }
-
+    // 각 필드 설정할 수 있는 메서드들
     public static class UserBuilder {
         private String email;
         private String password;
@@ -56,7 +56,7 @@ public class User {
             this.role = role;
             return this;
         }
-
+        // User 객체 생성 및 반환
         public User build() {
             User user = new User();
             user.setEmail(this.email);

@@ -43,12 +43,12 @@ public class AuthService {
     public AuthResponse login(AuthRequest request) {
         Optional<User> userOptional = userRepository.findByEmail(request.getEmail());
         if (userOptional.isEmpty()) {
-            throw new RuntimeException("Invalid email or password");
+            throw new RuntimeException("유효하지 않은 이메일 또는 비밀번호입니다.");
         }
 
         User user = userOptional.get();
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Invalid email or password");
+            throw new RuntimeException("유효하지 않은 이메일 또는 비밀번호입니다.");
         }
 
         String token = jwtUtil.generateToken(user.getEmail());

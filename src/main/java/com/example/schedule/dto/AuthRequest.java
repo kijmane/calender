@@ -9,7 +9,6 @@ public class AuthRequest {
     private String email;
     private String password;
 
-    // 추가된 getter 메서드
     public String getEmail() {
         return this.email;
     }

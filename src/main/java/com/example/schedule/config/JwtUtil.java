@@ -3,6 +3,7 @@ package com.example.schedule.config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -10,7 +11,9 @@ import java.util.Date;
 @Component
 public class JwtUtil {
 
-    private String secretKey = "your_secret_key";  // JWT 서명에 사용될 비밀 키
+    @Value("${jwt.secret.key}")  // application.properties 또는 환경 변수에서 가져옴
+    private String secretKey;
+
     private long expirationTime = 86400000L;  // JWT 만료 시간 (24시간)
 
     // JWT 토큰 생성
