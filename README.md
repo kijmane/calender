@@ -46,7 +46,7 @@ mvn spring-boot:run
 5. Swagger UI
 애플리케이션이 실행된 후 Swagger UI에서 API 문서를 확인할 수 있습니다.
 
-# API 엔드 포인트
+## API 엔드 포인트
 - 회원가입
 - URL : /api/auth/register
 - Method : POST
