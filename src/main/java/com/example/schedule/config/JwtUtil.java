@@ -25,12 +25,8 @@ public class JwtUtil {
                 .compact();
     }
 
-    public String extractUsername(String token) {
+    public String extractEmail(String token) {
         return extractClaim(token, Claims::getSubject);
-    }
-
-    public Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
     }
 
     private <T> T extractClaim(String token, ClaimsResolver<T> claimsResolver) {
@@ -46,16 +42,16 @@ public class JwtUtil {
                 .getBody();
     }
 
+    public boolean validateToken(String token) {
+        return !isTokenExpired(token);
+    }
+
     private boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
 
-    public boolean validateToken(String token) {
-        return (!isTokenExpired(token));
-    }
-
-    public String extractEmail(String token) {
-        return extractClaim(token, Claims::getSubject);
+    public Date extractExpiration(String token) {
+        return extractClaim(token, Claims::getExpiration);
     }
 
     @FunctionalInterface
