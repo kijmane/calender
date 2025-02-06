@@ -27,7 +27,6 @@ public class AuthService {
         this.jwtUtil = jwtUtil;
     }
 
-    // 회원가입 메서드
     public void register(RegisterRequest request) {
         User user = User.builder()
                 .email(request.getEmail())
@@ -39,7 +38,6 @@ public class AuthService {
         userRepository.save(user);
     }
 
-    // 로그인 메서드
     public AuthResponse login(AuthRequest request) {
         Optional<User> userOptional = userRepository.findByEmail(request.getEmail());
         if (userOptional.isEmpty()) {

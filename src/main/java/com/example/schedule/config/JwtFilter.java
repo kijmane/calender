@@ -28,7 +28,6 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String requestURI = request.getRequestURI();
 
-        // 로그인과 회원가입 경로에 대해서는 인증을 건너뛰도록 설정
         if (requestURI.equals("/api/auth/login") || requestURI.equals("/api/auth/register")) {
             chain.doFilter(request, response);
             return;
