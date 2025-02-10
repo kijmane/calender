@@ -22,6 +22,8 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
+        System.out.println("Hello");
+        System.out.println(request.getEmail());
         authService.register(request);
         return ResponseEntity.ok("사용자가 성공적으로 등록되었습니다.");
     }

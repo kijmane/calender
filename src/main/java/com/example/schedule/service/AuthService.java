@@ -28,13 +28,14 @@ public class AuthService {
     }
 
     public void register(RegisterRequest request) {
+        System.out.println(request.getEmail());
         User user = User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .name(request.getName())
                 .role(Role.USER)
                 .build();
-
+        System.out.println(request.getName());
         userRepository.save(user);
     }
 
