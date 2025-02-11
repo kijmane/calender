@@ -15,21 +15,21 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private String content;
+    private String title; // 일정 제목
+    private String content; // 일정 내용
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @ManyToOne // 하나의 일정은 하나의 사용자에 속한다는 관계
+    @JoinColumn(name = "user_id") // "user_id" 컬럼 외래 키로 사용
     private User user;
 
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private LocalDateTime startTime; // 일정 시작 시간
+    private LocalDateTime endTime; // 일정 종료 시간
 
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private LocalDateTime createdAt; // 일정 생성 시간
+    private LocalDateTime updatedAt; // 일정 수정 시간
 
-    public Schedule() {}
-
+    public Schedule() {} // 기본 생성자
+    // 사용자 정의 생성자
     public Schedule(String title, String content, User user) {
         this.title = title;
         this.content = content;

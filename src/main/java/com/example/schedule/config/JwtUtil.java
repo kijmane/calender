@@ -14,7 +14,7 @@ public class JwtUtil {
     @Value("${jwt.secret.key}")
     private String secretKey;
 
-    private long expirationTime = 86400000L;
+    private long expirationTime = 86400000L; // JWT 토큰 만료 시간 (24시간)
     // 사용자명을 기반으로 JWT 토큰 생성
     public String generateToken(String username) {
         return Jwts.builder()

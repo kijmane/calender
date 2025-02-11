@@ -7,9 +7,9 @@ import lombok.Setter;
 @Setter
 public class ScheduleRequest {
 
-    private String title;
-    private String content;
-    private User user;
+    private String title; // 일정의 제목
+    private String content; // 일정의 내용
+    private User user; // 해당 일정 작성한 사용자
 
     public String getTitle() {
         return title;

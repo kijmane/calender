@@ -11,27 +11,27 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity // JPA Entity로 데이터베이스에 매핑
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // ID 필드 자동 생성되고 기본 키로 사용
     private Long id;
 
-    private String name;
+    private String name; // 사용자 이름
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true) // 이메일 필수 , 유일한 값
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = false) // 비밀번호 필수
     private String password;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) // 역할 (Role)은 열거형 타입으로 정의
     private Role role;
 
-    @CreatedDate
+    @CreatedDate // 생성일 자동 설정
     private Date createdDate;
 
-    @LastModifiedDate
+    @LastModifiedDate // 수정일 자동 설정
     private Date modifiedDate;
 
     public void setName(String name) {
@@ -85,7 +85,7 @@ public class User {
     public Date getModifiedDate() {
         return modifiedDate;
     }
-
+    // 빌더 패턴을 위한 메서드
     public static UserBuilder builder() {
         return new UserBuilder();
     }
