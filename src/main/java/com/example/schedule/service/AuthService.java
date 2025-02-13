@@ -37,22 +37,15 @@ public class AuthService {
                 .build();
         userRepository.save(user); // 사용자 정보 DB에 저장
     }
-    // 로그인 메서드
     public AuthResponse login(AuthRequest request) {
-        Optional<User> userOptional = userRepository.findByEmail(request.getEmail());
-        // 사용자 없으면 예외 발생
-        if (userOptional.isEmpty()) {
-            throw new RuntimeException("유효하지 않은 이메일 또는 비밀번호입니다.");
-        }
-        // 사용자 객체 가져오기
-        User user = userOptional.get();
-        // 비밀번호 일치하는지 확인
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new RuntimeException("유효하지 않은 이메일 또는 비밀번호입니다."));
+
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new RuntimeException("유효하지 않은 이메일 또는 비밀번호입니다.");
         }
-        // JWT 토큰 생성
+
         String token = jwtUtil.generateToken(user.getEmail());
-        // 생성된 토큰을 응답으로 반환
         return new AuthResponse(token);
     }
 }
