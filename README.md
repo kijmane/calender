@@ -1,4 +1,4 @@
-# 고도화된 일정 관리 시스템
+# Advancement Calender
 ## 프로젝트 개요
 고도화된 일정 관리 시스템을 구축하는 것을 목표로 했습니다.
 
@@ -18,9 +18,9 @@
 - 세션 관리 및 쿠키 인증 : JWT 통한 인증 및 세션과 쿠키를 활용한 인증 처리
 - 비밀번호 암호화 : BCrypt를 활용하여 비밀번호 암호화 및 안전하게 처리
 
-## 사용 기술 스택
+## 기술 스택
 - Backend : Spring Boot , Spring Security , JWT , Spring Data JPA , Querydsl
-- Database : MySQL , Redis (세션 관리 및 캐싱)
+- Database : MySQL , Redis
 - 실시간 알림 : WebSocket
 - 스케줄링 : Spring Batch
 - 배포 : Docker , AWS
