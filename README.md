@@ -1,4 +1,4 @@
-# Advancement Calender
+# Advancement Calender [개발중]
 ## 프로젝트 개요
 고도화된 일정 관리 시스템을 구축하는 것을 목표로 했습니다.
 
