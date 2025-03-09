@@ -1,43 +1,37 @@
 plugins {
-    id 'java-library'
-    id 'maven-publish'
-}
-
-repositories {
-    mavenLocal()
-    maven {
-        url = uri('https://repo.maven.apache.org/maven2/')
-    }
-}
-
-dependencies {
-    api libs.org.springframework.boot.spring.boot.starter.web
-    api libs.org.springframework.boot.spring.boot.starter.data.jpa
-    api libs.org.springframework.boot.spring.boot.starter.security
-    api libs.com.mysql.mysql.connector.j
-    api libs.io.jsonwebtoken.jjwt.api
-    api libs.io.jsonwebtoken.jjwt.impl
-    api libs.io.jsonwebtoken.jjwt.jackson
-    api libs.com.querydsl.querydsl.jpa
-    api libs.org.springframework.security.spring.security.web
-    api libs.org.springframework.security.spring.security.config
-    api libs.org.springframework.boot.spring.boot.starter.data.redis
-    api libs.org.springframework.boot.spring.boot.starter.validation
-    testImplementation libs.org.springframework.boot.spring.boot.starter.test
-    compileOnly libs.org.projectlombok.lombok
+    id 'org.springframework.boot' version '3.1.5'
+    id 'io.spring.dependency-management' version '1.1.3'
+    id 'java'
 }
 
 group = 'com.example.schedule'
 version = '0.0.1-SNAPSHOT'
-description = 'schedule'
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = '17'
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from(components.java)
-        }
-    }
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+    annotationProcessor 'com.querydsl:querydsl-apt:5.0.0:jakarta'
+    annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
+    annotationProcessor 'jakarta.annotation:jakarta.annotation-api'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.springframework.boot:spring-boot-starter-batch'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation 'org.springframework.security:spring-security-crypto'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.withType(JavaCompile) {
