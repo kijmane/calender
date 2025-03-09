@@ -30,20 +30,20 @@
 ## ERD
 ![Untitled](https://github.com/user-attachments/assets/e0e6e123-8bd1-4ea5-b5c8-92c5eef6efec)
 
-## 실행 방법
+## Execute
 1. 프로젝트 클론
 git clone https://github.com/kijmane/schedule.git
 
-3. 의존성 설치 
+2. 의존성 설치 
 mvn install
 
-4. 애플리케이션 실행
+3. 애플리케이션 실행
 mvn spring-boot:run
 
-5. Swagger UI
+4. Swagger UI
 애플리케이션이 실행된 후 Swagger UI에서 API 문서를 확인할 수 있습니다.
 
-## 기여 방법
+## Contribute
 1. Fork
 - 이 프로젝트를 자신의 GitHub 계정으로 Fork해주세요.
 
