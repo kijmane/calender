@@ -1,10 +1,10 @@
 # Advancement Calender [개발중]
-## 프로젝트 개요
+## Project Overview
 - 실무에서 활용 가능한 CRUD 기능 제공 , JWT 인증 , 세션 및 쿠키인증 , 스케줄링 , 실시간 알림 시스템 등의 기능을 포함하고 있습니다.
 - 사용자는 시스템을 통해 일정을 관리하고 알림을 받을 수 있습니다.
 - 성능 최적화를 위해 MySQL 쿼리 튜닝 및 Redis 캐싱을 적용했습니다.
 
-## 핵심 기능
+## Main Features
 - 회원가입 및 로그인 : Spring Security와 JWT를 이용한 인증 및 권한 관리
 - 일정 관리 : 일정 생성 , 수정 , 삭제 , 조회 기능을 제공하고 JPA와 Querydsl을 사용해서 효율적인 데이터 처리
 - 일정 공유 : 사용자 간 초대 기능 및 알림 시스템
@@ -14,7 +14,7 @@
 - 세션 관리 및 쿠키 인증 : JWT 통한 인증 및 세션과 쿠키를 활용한 인증 처리
 - 비밀번호 암호화 : BCrypt를 활용하여 비밀번호 암호화 및 안전하게 처리
 
-## 기술 스택
+## Tech Stack
 - Backend : Spring Boot , Spring Security , JWT , Spring Data JPA , Querydsl
 - Database : MySQL , Redis
 - 실시간 알림 : WebSocket
@@ -23,17 +23,11 @@
 - CI/CD : Jenkins
 - API 문서화 : Postman
 
-## 프로젝트 차별화 포인트
-- 실무 로직 포함 : 단순 CRUD에 그치지 않고 JWT 인증 , 실시간 알림 , 스케줄링 등의 기능을 포함하여 실제 업무 환경에서도 사용할 수 있는 수준으로 개발
-- 성능 최적화 : MySQL 쿼리 튜닝과 Redis 캐싱 적용으로 높은 성능을 유지
-- API 문서화 : Swagger와 Postman을 활용해서 API 사용 방법을 명확히 문서화
-- 배포 경험 : Docker 컨테이너화 및 AWS 배포를 통해 실제 운영 환경에 배포하는 과정을 경험
-
-## 예외 처리
+## Exceptional Handling
 - 커스텀 예외 클래스 : 예외를 구체적으로 정의해서 사용자에게 더 명확한 오류 메시지 제공 (UserNotFoundException , InvalidPasswordException)
 - 글로벌 예외 처리 : @ControllerAdvice를 사용해서 애플리케이션 전역에서 발생하는 예외를 처리 (예외 발생 시 HTTP 상태 코드와 메시지를 반환)
 
-## ERD 설계
+## ERD
 ![Untitled](https://github.com/user-attachments/assets/e0e6e123-8bd1-4ea5-b5c8-92c5eef6efec)
 
 ## 실행 방법
@@ -48,43 +42,6 @@ mvn spring-boot:run
 
 5. Swagger UI
 애플리케이션이 실행된 후 Swagger UI에서 API 문서를 확인할 수 있습니다.
-
-## API 엔드 포인트
-- 회원가입
-- URL : /api/auth/register
-- Method : POST
-- Request Body :
-```
-{
-  "email": "user@example.com",
-  "password": "password123",
-  "name": "John Doe"
-}
-```
-
-- 로그인
-- URL : /api/auth/login
-- Method : POST
-- Request Body :
-```
-{
-  "email": "user@example.com",
-  "password": "password123"
-}
-```
-
-- 일정 생성
-- URL : /api/schedules
-- Method : POST
-- Request Body :
-```
-{
-  "task": "Meeting with John",
-  "startDate": "2025-02-05T10:00:00",
-  "endDate": "2025-02-05T11:00:00",
-  "userId": 1
-}
-```
 
 ## 기여 방법
 1. Fork
