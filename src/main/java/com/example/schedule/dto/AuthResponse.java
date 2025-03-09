@@ -8,8 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class AuthResponse {
-    private String token; // JWT 토큰을 담는 필드
-    // 토큰 입력받아 AuthResponse 객체 생성
+    private String token;
     public AuthResponse(String token) {
         this.token = token;
     }

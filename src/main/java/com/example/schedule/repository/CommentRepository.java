@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CommentRepository extends JpaRepository<Comment, Long> {
-    List<Comment> findByScheduleId(Long scheduleId); // 일정에 해당하는 댓글 조회
-    Optional<Comment> findByIdAndScheduleId(Long id, Long scheduleId); // 특정 일정의 댓글 조회
+    List<Comment> findByScheduleId(Long scheduleId);
+    Optional<Comment> findByIdAndScheduleId(Long id, Long scheduleId);
 }

@@ -17,21 +17,21 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String content; // 댓글 내용
+    private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private User user; // 댓글 작성자 (유저 고유 식별자)
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "schedule_id")
-    private Schedule schedule; // 해당 댓글이 속한 일정 (일정 고유 식별자)
+    private Schedule schedule;
 
     @CreatedDate
-    private LocalDateTime createdDate; // 댓글 작성일
+    private LocalDateTime createdDate;
 
     @LastModifiedDate
-    private LocalDateTime modifiedDate; // 댓글 수정일
+    private LocalDateTime modifiedDate;
 
     public Comment(String content) {
         this.content = content;

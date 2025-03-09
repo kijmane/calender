@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class CommentRequest {
     private String content;
-    private Long userId; // 댓글 작성자 ID
+    private Long userId;
 
     public Long getUserId() {
         return userId;
