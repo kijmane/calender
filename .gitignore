@@ -7,9 +7,11 @@
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
+### properties ###
 application.properties
-application.local
+application-local.properties
+
+### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
