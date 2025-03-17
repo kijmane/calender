@@ -31,5 +31,4 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 
 # 로컬 설정 파일
-/src/main/resources/application-local.properties
-/src/main/resources/application.properties
+*.properties
