@@ -8,6 +8,8 @@
 .sts4-cache
 
 ### IntelliJ IDEA ###
+application.properties
+application.local
 .idea
 *.iws
 *.iml
