@@ -1,4 +1,4 @@
-# Advancement Calender [개발중]
+# Advancement Calender
 ## Project Overview
 - 사용자는 일정을 관리하고 알림을 받을 수 있습니다.
 - 성능 최적화를 위해 MySQL 쿼리 튜닝 및 Redis 캐싱을 적용했습니다.
