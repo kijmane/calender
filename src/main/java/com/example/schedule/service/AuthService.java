@@ -3,15 +3,13 @@ package com.example.schedule.service;
 import com.example.schedule.config.JwtUtil;
 import com.example.schedule.domain.Role;
 import com.example.schedule.domain.User;
-import com.example.schedule.dto.AuthRequest;
-import com.example.schedule.dto.AuthResponse;
-import com.example.schedule.dto.RegisterRequest;
+import com.example.schedule.dto.Request.AuthRequest;
+import com.example.schedule.dto.Response.AuthResponse;
+import com.example.schedule.dto.Request.RegisterRequest;
 import com.example.schedule.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class AuthService {
