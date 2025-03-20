@@ -3,7 +3,7 @@ package com.example.schedule.service;
 import com.example.schedule.domain.Comment;
 import com.example.schedule.domain.Schedule;
 import com.example.schedule.domain.User;
-import com.example.schedule.dto.CommentRequest;
+import com.example.schedule.dto.Request.CommentRequest;
 import com.example.schedule.repository.CommentRepository;
 import com.example.schedule.repository.ScheduleRepository;
 import com.example.schedule.repository.UserRepository;

@@ -1,7 +1,8 @@
 package com.example.schedule.controller;
 
+import com.example.schedule.aop.AdminLogging;
 import com.example.schedule.domain.Comment;
-import com.example.schedule.dto.CommentRequest;
+import com.example.schedule.dto.Request.CommentRequest;
 import com.example.schedule.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,12 +33,14 @@ public class CommentController {
         return ResponseEntity.ok(comments);
     }
 
+    @AdminLogging
     @PutMapping("/{commentId}")
     public ResponseEntity<String> updateComment(@PathVariable Long scheduleId, @PathVariable Long commentId, @RequestBody CommentRequest request) {
         commentService.updateComment(commentId, scheduleId, request);
         return ResponseEntity.ok("댓글이 성공적으로 수정되었습니다.");
     }
 
+    @AdminLogging
     @DeleteMapping("/{commentId}")
     public ResponseEntity<String> deleteComment(@PathVariable Long scheduleId, @PathVariable Long commentId) {
         commentService.deleteComment(commentId, scheduleId);

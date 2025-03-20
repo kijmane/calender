@@ -1,6 +1,6 @@
 package com.example.schedule.controller;
 
-import com.example.schedule.dto.ScheduleRequest;
+import com.example.schedule.dto.Request.ScheduleRequest;
 import com.example.schedule.domain.Schedule;
 import com.example.schedule.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;

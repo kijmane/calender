@@ -1,8 +1,8 @@
 package com.example.schedule.controller;
 
-import com.example.schedule.dto.AuthRequest;
-import com.example.schedule.dto.AuthResponse;
-import com.example.schedule.dto.RegisterRequest;
+import com.example.schedule.dto.Request.AuthRequest;
+import com.example.schedule.dto.Response.AuthResponse;
+import com.example.schedule.dto.Request.RegisterRequest;
 import com.example.schedule.service.AuthService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
