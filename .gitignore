@@ -22,6 +22,8 @@
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+dump.rdb
+*.rdb
 
 ### OS ###
 .DS_Store
