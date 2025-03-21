@@ -11,17 +11,18 @@ import java.util.Collections;
 @Getter
 public class CustomUserDetails implements UserDetails {
 
+    private final Long userId;
     private final String email;
     private final String password;
 
     public CustomUserDetails(User user) {
+        this.userId = user.getId();
         this.email = user.getEmail();
         this.password = user.getPassword();
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // 권한 필요 시 확장 예정
         return Collections.emptyList();
     }
 
