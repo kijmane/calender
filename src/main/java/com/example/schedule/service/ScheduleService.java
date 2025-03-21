@@ -4,6 +4,8 @@ import com.example.schedule.dto.request.ScheduleSearchCondition;
 import com.example.schedule.entity.Schedule;
 import com.example.schedule.dto.request.ScheduleRequest;
 import com.example.schedule.repository.ScheduleRepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -37,11 +39,13 @@ public class ScheduleService {
         return scheduleRepository.search(condition);
     }
 
+    @Cacheable(value = "schedule", key = "#id")
     public Schedule getSchedule(Long id) {
         return scheduleRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("일정을 찾을 수 없습니다."));
     }
 
+    @CacheEvict(value = "schedule", key = "#id")
     public void updateSchedule(Long id, ScheduleRequest request) {
         Schedule schedule = scheduleRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("일정을 찾을 수 없습니다."));
@@ -49,6 +53,7 @@ public class ScheduleService {
         schedule.update(request.getTitle(), request.getContent(), null, null);
     }
 
+    @CacheEvict(value = "schedule", key = "#id")
     public void deleteSchedule(Long id) {
         scheduleRepository.deleteById(id);
     }
