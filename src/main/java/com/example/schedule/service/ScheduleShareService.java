@@ -3,6 +3,7 @@ package com.example.schedule.service;
 import com.example.schedule.dto.request.ScheduleShareRequest;
 import com.example.schedule.dto.response.ScheduleShareResponse;
 import com.example.schedule.entity.*;
+import com.example.schedule.entity.enums.ShareStatus;
 import com.example.schedule.exception.UserNotFoundException;
 import com.example.schedule.repository.ScheduleRepository;
 import com.example.schedule.repository.ScheduleShareRepository;

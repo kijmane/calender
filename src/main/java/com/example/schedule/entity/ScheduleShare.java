@@ -1,5 +1,7 @@
 package com.example.schedule.entity;
 
+import com.example.schedule.entity.enums.SharePermission;
+import com.example.schedule.entity.enums.ShareStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

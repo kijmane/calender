@@ -1,6 +1,6 @@
 package com.example.schedule.dto.request;
 
-import com.example.schedule.entity.SharePermission;
+import com.example.schedule.entity.enums.SharePermission;
 import lombok.*;
 
 @Getter

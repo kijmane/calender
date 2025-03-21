@@ -1,7 +1,7 @@
 package com.example.schedule.dto.response;
 
-import com.example.schedule.entity.SharePermission;
-import com.example.schedule.entity.ShareStatus;
+import com.example.schedule.entity.enums.SharePermission;
+import com.example.schedule.entity.enums.ShareStatus;
 import lombok.Builder;
 
 import java.time.LocalDateTime;

@@ -1,7 +1,7 @@
 package com.example.schedule.service;
 
 import com.example.schedule.config.jwt.JwtUtil;
-import com.example.schedule.entity.Role;
+import com.example.schedule.entity.enums.Role;
 import com.example.schedule.entity.User;
 import com.example.schedule.dto.request.UserRequest;
 import com.example.schedule.dto.response.UserResponse;
