@@ -1,11 +1,13 @@
 package com.example.schedule.dto.request;
 
-import lombok.Getter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
+@Builder
 public class ScheduleSearchCondition {
     private String title;
     private String email;
@@ -15,5 +17,9 @@ public class ScheduleSearchCondition {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime to;
+
+    private List<Long> tagIds;
+
+   private Long categoryId;
 }
 

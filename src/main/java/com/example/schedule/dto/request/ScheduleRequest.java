@@ -4,6 +4,8 @@ import lombok.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import java.util.*;
+
 @Getter
 @NoArgsConstructor
 public class ScheduleRequest {
@@ -14,4 +16,8 @@ public class ScheduleRequest {
     private String content;
 
     private User user;
+
+    private Long categoryId;
+
+    private List<Long> tagIds;
 }
