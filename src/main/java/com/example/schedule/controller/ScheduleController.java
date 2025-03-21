@@ -24,7 +24,7 @@ public class ScheduleController {
     @PostMapping
     public ResponseEntity<ResponseMessage> createSchedule(@RequestBody ScheduleRequest request) {
         scheduleService.createSchedule(request);
-        return ResponseEntity.ok(new ResponseMessage("일정이 성공적으로 생성되었습니다."));
+        return ResponseEntity.ok(ResponseMessage.of("일정이 성공적으로 생성되었습니다.",200));
     }
 
     @GetMapping("/{id}")
@@ -36,13 +36,13 @@ public class ScheduleController {
     public ResponseEntity<ResponseMessage> updateSchedule(@PathVariable Long id,
                                                           @RequestBody ScheduleRequest request) {
         scheduleService.updateSchedule(id, request);
-        return ResponseEntity.ok(new ResponseMessage("일정이 성공적으로 수정되었습니다."));
+        return ResponseEntity.ok(ResponseMessage.of("일정이 성공적으로 수정되었습니다.",200));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseMessage> deleteSchedule(@PathVariable Long id) {
         scheduleService.deleteSchedule(id);
-        return ResponseEntity.ok(new ResponseMessage("일정이 성공적으로 삭제되었습니다."));
+        return ResponseEntity.ok(ResponseMessage.of("일정이 성공적으로 삭제되었습니다.",200));
     }
 
     @GetMapping
