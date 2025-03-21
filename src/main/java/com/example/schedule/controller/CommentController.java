@@ -1,8 +1,8 @@
 package com.example.schedule.controller;
 
 import com.example.schedule.aop.AdminLogging;
-import com.example.schedule.domain.Comment;
-import com.example.schedule.dto.Request.CommentRequest;
+import com.example.schedule.entity.Comment;
+import com.example.schedule.dto.request.CommentRequest;
 import com.example.schedule.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

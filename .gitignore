@@ -33,4 +33,4 @@ dump.rdb
 !gradle/wrapper/gradle-wrapper.jar
 
 # 로컬 설정 파일
-*.properties
+src/main/resources/application-dev.properties

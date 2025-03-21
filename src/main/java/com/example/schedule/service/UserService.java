@@ -1,25 +1,25 @@
 package com.example.schedule.service;
 
-import com.example.schedule.config.JwtUtil;
-import com.example.schedule.domain.Role;
-import com.example.schedule.domain.User;
-import com.example.schedule.dto.Request.AuthRequest;
-import com.example.schedule.dto.Response.AuthResponse;
-import com.example.schedule.dto.Request.RegisterRequest;
+import com.example.schedule.config.jwt.JwtUtil;
+import com.example.schedule.entity.Role;
+import com.example.schedule.entity.User;
+import com.example.schedule.dto.request.UserRequest;
+import com.example.schedule.dto.response.UserResponse;
+import com.example.schedule.dto.request.RegisterRequest;
 import com.example.schedule.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthService {
+public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
 
     @Autowired
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtUtil jwtUtil) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtUtil = jwtUtil;
@@ -35,7 +35,7 @@ public class AuthService {
         userRepository.save(user);
     }
 
-    public AuthResponse login(AuthRequest request) {
+    public UserResponse login(UserRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("유효하지 않은 이메일 또는 비밀번호입니다."));
 
@@ -43,6 +43,6 @@ public class AuthService {
             throw new RuntimeException("유효하지 않은 이메일 또는 비밀번호입니다.");
         }
         String token = jwtUtil.generateToken(user.getEmail());
-        return new AuthResponse(token);
+        return new UserResponse(token);
     }
 }

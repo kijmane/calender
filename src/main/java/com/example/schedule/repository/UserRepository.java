@@ -1,6 +1,6 @@
 package com.example.schedule.repository;
 
-import com.example.schedule.domain.User;
+import com.example.schedule.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

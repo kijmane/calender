@@ -1,6 +1,6 @@
 package com.example.schedule.repository;
 
-import com.example.schedule.domain.Comment;
+import com.example.schedule.entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

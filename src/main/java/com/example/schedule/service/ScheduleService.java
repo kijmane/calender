@@ -1,10 +1,13 @@
 package com.example.schedule.service;
 
-import com.example.schedule.domain.Schedule;
-import com.example.schedule.dto.Request.ScheduleRequest;
+import com.example.schedule.dto.request.ScheduleSearchCondition;
+import com.example.schedule.entity.Schedule;
+import com.example.schedule.dto.request.ScheduleRequest;
 import com.example.schedule.repository.ScheduleRepository;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -17,14 +20,23 @@ public class ScheduleService {
     }
 
     public void createSchedule(ScheduleRequest request) {
+        Schedule schedule = Schedule.builder()
+                .title(request.getTitle())
+                .content(request.getContent())
+                .user(request.getUser())
+                .build();
 
-        Schedule schedule = new Schedule(request.getTitle(), request.getContent(), request.getUser());
         scheduleRepository.save(schedule);
     }
 
-    public List<Schedule> getSchedules(Pageable pageable) {
-        return scheduleRepository.findAll();
+    public Page<Schedule> getSchedules(Pageable pageable) {
+        return scheduleRepository.findAll(pageable);
     }
+
+    public List<Schedule> searchSchedules(ScheduleSearchCondition condition) {
+        return scheduleRepository.search(condition);
+    }
+
     public Schedule getSchedule(Long id) {
         return scheduleRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("일정을 찾을 수 없습니다."));
@@ -33,10 +45,10 @@ public class ScheduleService {
     public void updateSchedule(Long id, ScheduleRequest request) {
         Schedule schedule = scheduleRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("일정을 찾을 수 없습니다."));
-        schedule.setTitle(request.getTitle());
-        schedule.setContent(request.getContent());
-        scheduleRepository.save(schedule);
+
+        schedule.update(request.getTitle(), request.getContent(), null, null);
     }
+
     public void deleteSchedule(Long id) {
         scheduleRepository.deleteById(id);
     }

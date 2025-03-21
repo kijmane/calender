@@ -12,7 +12,6 @@ import java.util.Arrays;
 @Aspect
 @Component
 public class AdminLoggingAspect {
-
     @Around("@annotation(AdminLogging)")
     public Object logAdminAccess(ProceedingJoinPoint joinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
