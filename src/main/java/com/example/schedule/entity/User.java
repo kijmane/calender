@@ -1,5 +1,6 @@
 package com.example.schedule.entity;
 
+import com.example.schedule.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;

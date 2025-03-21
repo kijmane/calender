@@ -1,6 +1,7 @@
 package com.example.schedule.controller;
 
 import com.example.schedule.aop.AdminLogging;
+import com.example.schedule.dto.response.ResponseMessage;
 import com.example.schedule.entity.Comment;
 import com.example.schedule.dto.request.CommentRequest;
 import com.example.schedule.service.CommentService;
@@ -22,9 +23,9 @@ public class CommentController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createComment(@RequestBody CommentRequest request, @PathVariable Long scheduleId) {
+    public ResponseEntity<ResponseMessage> createComment(@RequestBody CommentRequest request, @PathVariable Long scheduleId) {
         commentService.createComment(request, scheduleId);
-        return ResponseEntity.ok("댓글이 성공적으로 생성되었습니다.");
+        return ResponseEntity.ok(ResponseMessage.of("댓글이 성공적으로 생성되었습니다.",200));
     }
 
     @GetMapping
