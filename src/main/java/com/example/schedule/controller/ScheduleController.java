@@ -3,6 +3,7 @@ package com.example.schedule.controller;
 import com.example.schedule.dto.request.ScheduleRequest;
 import com.example.schedule.dto.request.ScheduleSearchCondition;
 import com.example.schedule.dto.response.ResponseMessage;
+import com.example.schedule.dto.response.ScheduleResponse;
 import com.example.schedule.entity.Schedule;
 import com.example.schedule.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
@@ -53,8 +54,8 @@ public class ScheduleController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Schedule>> searchSchedules(@ModelAttribute ScheduleSearchCondition condition) {
-        List<Schedule> schedules = scheduleService.searchSchedules(condition);
+    public ResponseEntity<List<ScheduleResponse>> searchSchedules(@ModelAttribute ScheduleSearchCondition condition) {
+        List<ScheduleResponse> schedules = scheduleService.searchSchedules(condition);
         return ResponseEntity.ok(schedules);
     }
 
