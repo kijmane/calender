@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Notification</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+</head>
+<body>
+<h1>WebSocket 알림 테스트</h1>
+<button onclick="connect()">Connect</button>
+<button onclick="sendNotification()">Send Notification</button>
+
+<script>
+    let stompClient = null;
+
+    function connect() {
+        const socket = new SockJS('/ws');
+        stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function () {
+            console.log('Connected');
+            stompClient.subscribe('/user/jane/queue/notifications', function (message) {
+                const body = JSON.parse(message.body);
+                alert("알림: " + body.content);
+            });
+        });
+    }
+
+    function sendNotification() {
+        stompClient.send("/app/notifications/send", {}, JSON.stringify({
+            receiver: "jane",
+            content: "새로운 일정이 공유되었습니다!"
+        }));
+    }
+</script>
+</body>
+</html>

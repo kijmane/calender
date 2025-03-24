@@ -1,5 +1,7 @@
-package com.example.schedule.exception;
+package com.example.schedule.handler;
 
+import com.example.schedule.exception.InvalidPasswordException;
+import com.example.schedule.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import com.example.schedule.dto.response.ErrorResponse;
