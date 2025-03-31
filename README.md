@@ -12,7 +12,7 @@
 
 ## To be developed
 - 자동 알림: Spring Batch를 활용한 스케줄링으로 주기적인 알림 발송 기능 추가 (feature/batch-reminder)
-- - 실시간 알림: WebSocket을 이용한 실시간 일정 알림 발송 기능 구현
+- 실시간 알림: WebSocket을 이용한 실시간 일정 알림 발송 기능 구현
 
 ## Tech Stack
 - Backend : Spring Boot , Spring Security , JWT , Spring Data JPA , Querydsl
