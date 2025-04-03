@@ -3,6 +3,15 @@
 - 일정 관리 기능을 중심으로 한 실무형 백엔드 시스템 설계 및 고도화
 - 인증/인가, 공유 기능, 쿼리 최적화, 캐싱, AOP 기반 로깅 등 다양한 백엔드 기능 구현
 
+## Tech Stack
+| Configuration | Tech Stack |
+|------|-----------|
+| Backend | Spring Boot, Spring Security, JWT, JPA, QueryDSL |
+| Database | MySQL |
+| Build Tool | Gradle |
+| API Documentation Tool | Postman |
+| Cache | Redis |
+
 ## Main Features
 ### Authentication & Security
 - Spring Security + JWT 기반 로그인/회원가입
@@ -32,12 +41,3 @@
 
 ### AOP Logging
 - 관리자 API 접근 시 AOP 로깅 기능 적용
-
-## Tech Stack
-| Configuration | Tech Stack |
-|------|-----------|
-| Backend | Spring Boot, Spring Security, JWT, JPA, QueryDSL |
-| Database | MySQL |
-| Build Tool | Gradle |
-| API Documentation Tool | Postman |
-| Cache | Redis |
