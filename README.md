@@ -1,20 +1,37 @@
-# Calender
+# Calender 일정 관리 백엔드 시스템
 ## Project Overview
-- 사용자는 일정을 관리할 수 있습니다.
-- 성능 최적화를 위해 MySQL 쿼리 튜닝 및 Redis 캐싱을 적용했습니다.
+- 일정 관리 기능을 중심으로 한 실무형 백엔드 시스템 설계 및 고도화
+- 인증/인가, 공유 기능, 쿼리 최적화, 캐싱, AOP 기반 로깅 등 다양한 백엔드 기능 구현
 
 ## Main Features
-- 회원가입 및 로그인 : Spring Security와 JWT를 이용한 인증 및 권한 관리
-- 일정 관리 : 일정 생성 , 수정 , 삭제 , 조회 기능을 제공하고 JPA와 Querydsl을 사용해서 효율적인 데이터 처리
-- 비밀번호 암호화 : BCrypt를 활용하여 비밀번호 암호화 및 안전하게 처리
-- 일정 공유: 사용자 간 초대 기능 및 알림 시스템 구현
-- 태그 및 카테고리: 일정에 태그와 카테고리를 추가하여 효율적인 일정 관리 및 검색 기능 제공
+### 인증 및 보안
+- Spring Security + JWT 기반 로그인/회원가입
+- 사용자 인증 및 역할 기반 접근 제어
+- 비밀번호는 BCrypt로 암호화 저장
 
-## To be developed
-- 자동 알림: Spring Batch를 활용한 스케줄링으로 주기적인 알림 발송 기능 추가 (feature/batch-reminder)
-- 실시간 알림: WebSocket을 이용한 실시간 일정 알림 발송 기능 구현
+### 일정 관리
+- 일정 생성, 수정, 삭제, 조회 기능
+- QueryDSL 기반 조건 검색 (날짜, 태그, 카테고리 등)
+- 최신순 정렬 및 페이징 처리
+
+### 일정 공유
+- 사용자 간 공유 요청 및 수락
+- 공유된 일정에 대한 접근 제어 로직 포함
+
+### 태그/카테고리 관리
+- 일정에 태그와 카테고리 지정
+- 검색 조건으로 활용 가능
+
+### 댓글 기능
+- 일정에 대한 댓글 등록, 수정, 삭제
+
+### 성능 최적화
+- Redis 캐싱 적용 (예: 일정 목록 등 조회 결과 캐싱)
+- MySQL 쿼리 튜닝 및 인덱싱을 통한 조회 성능 개선
+- QueryDSL + BooleanBuilder로 유연한 동적 쿼리 구현
+
+### AOP 기반 로깅
+- 관리자 API 접근 시 AOP 로깅 기능 적용
 
 ## Tech Stack
-- Backend : Spring Boot , Spring Security , JWT , Spring Data JPA , Querydsl
-- Database : MySQL , Redis
-- API 문서화 : Postman
+
