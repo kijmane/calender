@@ -34,4 +34,10 @@
 - 관리자 API 접근 시 AOP 로깅 기능 적용
 
 ## Tech Stack
-
+| 구성 | 사용 기술 |
+|------|-----------|
+| Backend | Spring Boot, Spring Security, JWT, JPA, QueryDSL |
+| Database | MySQL |
+| Build Tool | Gradle |
+| 문서화 도구 | Postman |
+| 캐시 | Redis |
