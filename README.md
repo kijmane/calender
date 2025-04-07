@@ -11,6 +11,11 @@
 | Build Tool | Gradle |
 | API Documentation Tool | Postman |
 | Cache | Redis |
+| DevOps | Docker, GitHub Actions |
+
+## DevOps 
+- Spring Boot 애플리케이션을 Docker로 컨테이너화하여 실행
+- GitHub Actions를 활용해 `main` 브랜치에 push할 때마다 자동으로 Gradle 빌드 및 Docker 이미지 빌드가 이루어지도록 구성
 
 ## Main Features
 ### Authentication & Security
