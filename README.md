@@ -1,4 +1,3 @@
-# Management Backend System
 ## Project Overview
 - 일정 관리 기능을 중심으로 한 실무형 백엔드 시스템 설계 및 고도화
 - 인증/인가, 공유 기능, 쿼리 최적화, 캐싱, AOP 기반 로깅 등 다양한 백엔드 기능 구현
